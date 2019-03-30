@@ -1,6 +1,6 @@
-int dataPin = 11;   //connected to DS
-int clockPin = 12;  //connected to SH_CP
-int latchPin = 8;   //connected to ST_CP
+int dataPin = 4;   //connected to DS
+int clockPin = 6;  //connected to SH_CP
+int latchPin = 5;   //connected to ST_CP
 int buton_pin = 2;   
 
 
@@ -11,7 +11,12 @@ bool check_button()
 {
   int button = digitalRead(buton_pin);
   if (button == 1) {
-    go();
+    int elma = 0;
+    while (elma<10){
+      go();
+      delay(300);
+      elma++; 
+    }
   }
 }
 
@@ -34,4 +39,3 @@ void go(void){
   shiftOut(dataPin, clockPin, LSBFIRST, sans);
   digitalWrite(latchPin, 1);  
 }
-
